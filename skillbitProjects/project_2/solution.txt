@@ -1,0 +1,36 @@
+Solution to the problem statement:
+
+Create an S3 storage where the backed up files will be stored
+
+Create an EC2 instance
+
+ssh into that EC2 instance using
+ssh -i ssh-key.pem ec2-user@<EC2 public ip>
+
+# Update package list
+sudo yum update -y
+
+# Install Python 3 and pip
+sudo yum install python3.11 -y
+sudo yum install pip -y
+
+# Install required libraries
+pip3 install boto3 cryptography schedule
+
+Create IAM role for EC2 to access the S3 storage
+Create IAM Role for EC2
+Go to IAM in the AWS Management Console.
+Create a new Role with the following policies:
+AmazonS3FullAccess (for interacting with S3)
+CloudWatchLogsFullAccess (optional, for logging backup status)
+
+Attach this role to your EC2 instance:
+In the EC2 Dashboard, go to your instance and click Actions > Security > Modify IAM Role.
+Select the IAM role you just created and attach it.
+
+Write Python Backup Script
+
+create files to be backed up in the ec2 instance
+
+Test if everything is working as fine
+

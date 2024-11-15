@@ -1,0 +1,3 @@
+Serverless Contact Form: Create a serverless contact form using AWS Lambda and
+API Gateway. When a user submits the form, Lambda handles the data processing
+and sends an email notification through Amazon SES (Simple Email Service).
